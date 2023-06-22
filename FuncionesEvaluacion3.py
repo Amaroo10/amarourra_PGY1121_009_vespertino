@@ -2,7 +2,7 @@ import random
 
 def grabar_vehiculo(registro):
     while True:
-        tipo = input("Tipo de vehiculo: ")
+        tipo = input("Tipo de vehiculo : ")
 
         patente = input("Ingrese la patente: ")
         while len(patente) != 6:
