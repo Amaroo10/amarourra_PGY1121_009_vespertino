@@ -29,14 +29,14 @@ Escribir un programa que contenga:
 Comenzamos con la creación de 2 archivos en extension `.py`
 
 ```
-Evaluacion3.py
-FuncionesEvaluacion3.py
+Prueba3.py
+FuncionesPrueba3.py
 ```
-En el archivo `Evaluacion3.py` creamos la función principal, en la cual se crea el menú y se llama a las funciones correspondientes, antecedemos a esto con un mensaje de bienvenida y la opción de ingresar el nombre de la persona que esta haciendo uso del programa.
+En el archivo `Prueba3.py` creamos la función principal, en la cual se crea el menú y se llama a las funciones correspondientes, antecedemos a esto con un mensaje de bienvenida y la opción de ingresar el nombre de la persona que esta haciendo uso del programa.
 
 ```python
 import time
-import FuncionesEvaluacion3 as fn
+import FuncionesPrueba3 as fn
 
 print("Bienvenido a automotora Auto Seguro.")
 usuario = input("Ingrese su nombre: ")
@@ -69,7 +69,7 @@ def main():
 ```
 En el inicio del archivo importamos la libreria `time` para usar un `time.sleep` que le dará al programa una espera de 5 segundos antes de cerrar completamente.
 
-Para finalizar el archivo principal `Evaluacion3.py`, le daremos la opcion de ser importado en un futuro hacia otro archivo, sin tener que ejecutarse sobre el mismo e importando solo las funciones de `FuncionesEvaluacion3.py`.
+Para finalizar el archivo principal `Prueba3.py`, le daremos la opcion de ser importado en un futuro hacia otro archivo, sin tener que ejecutarse sobre el mismo e importando solo las funciones de `FuncionesPrueba3.py`.
 
 ```python
 if __name__ == "__main__":
@@ -77,7 +77,7 @@ if __name__ == "__main__":
 ```
 ## Desarrollo de las funciones.
 
-En el archivo `FuncionesEvaluacion3.py` creamos las funciones correspondientes a cada una de las opciones del menú.
+En el archivo `FuncionesPrueba3.py` creamos las funciones correspondientes a cada una de las opciones del menú.
 
 ## Funciones
 
@@ -230,7 +230,7 @@ import random
 
 ### 4. Salir
 
-Lo siguiente es parte del archivo `Evaluacion3.py`:
+Lo siguiente es parte del archivo `Prueba3.py`:
 ```python
 print(f"Hasta luego {usuario}. Gracias por usar Auto Seguro.\nversion 1.0")
             print("Cerrando...")
