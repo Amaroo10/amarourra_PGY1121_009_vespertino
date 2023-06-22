@@ -7,13 +7,13 @@ Se plantea la siguiente situacion:
 La automotora “Auto Seguro” necesita registrar todos los datos de los vehículos que en este periodo tienen a la venta. En el registro de vehículos que pertenece a la región metropolitana de Santiago de Chile, requiere construir un programa con un menú que contenga las siguientes opciones:
 
 - Opción 1: Grabar.
-Corresponde a guardar ciertos datos de un vehículo, entre ellos: Tipo, patente, marca y precio, multas (monto yfecha), fecha de registro del vehículo y nombre del dueño.Además, debe verificar que la patente sea correcta, la marca considere entre 2 y 15 caracteres y el precio sea mayor a$5.000.000.
+Corresponde a guardar ciertos datos de un vehículo, entre ellos: Tipo, patente, marca y precio, multas (monto y fecha), fecha de registro del vehículo y nombre del dueño.Además, debe verificar que la patente sea correcta, la marca considere entre 2 y 15 caracteres y el precio sea mayor a$5.000.000.
 
 - Opción 2: Buscar.
 Corresponde buscar un auto por su patente y mostrar toda su información almacenada.
 
 - Opción 3: Imprimir certificados.
-Esta opción permite imprimir los certificados de Emisión de contaminantes, de anotaciones vigentesy de multas. Estos deben ser previamente ingresados con valores aleatorios entre $1.500 y $3.500. Al imprimir el certificado,debe mostrar el nombre del certificado, la patente del auto y los datos del dueño actual.
+Esta opción permite imprimir los certificados de Emisión de contaminantes, de anotaciones vigentes y de multas. Estos deben ser previamente ingresados con valores aleatorios entre $1.500 y $3.500. Al imprimir el certificado,debe mostrar el nombre del certificado, la patente del auto y los datos del dueño actual.
 
 - Opción 4: Salir.
 Salir del programa emitiendo un mensaje de salida. Considere, además, su nombre y apellido y laversión del programa.
@@ -27,12 +27,14 @@ Considere el ingreso de datos y el despliegue de información.
 Desarrollo del programa.
 Comenzamos con la creación de 2 archivos en extension .py
 
-Evaluacion3.py
-FuncionesEvaluacion3.py
-En el archivo Evaluacion3.py creamos la función principal, en la cual se crea el menú y se llama a las funciones correspondientes, antecedemos a esto con un mensaje de bienvenida y la opción de ingresar el nombre de la persona que esta haciendo uso del programa.
+Prueba.py
+
+Prueba.py
+
+En el archivo Prueba.py creamos la función principal, en la cual se crea el menú y se llama a las funciones correspondientes, antecedemos a esto con un mensaje de bienvenida y la opción de ingresar el nombre de la persona que esta haciendo uso del programa.
 
 import time
-import FuncionesEvaluacion3 as fn
+import Prueba.py as fn
 
 print("Bienvenido a automotora Auto Seguro.")
 usuario = input("Ingrese su nombre: ")
@@ -62,7 +64,7 @@ def main():
 
 En el inicio del archivo importamos la libreria time para usar un time.sleep que le dará al programa una espera de 5 segundos antes de cerrar completamente.
 
-Para finalizar el archivo principal Evaluacion3.py, le daremos la opcion de ser importado en un futuro hacia otro archivo, sin tener que ejecutarse sobre el mismo e importando solo las funciones de FuncionesEvaluacion3.py.
+Para finalizar el archivo principal Prueba.py, le daremos la opcion de ser importado en un futuro hacia otro archivo, sin tener que ejecutarse sobre el mismo e importando solo las funciones de Prueba.py.
 
 if __name__ == "__main__":
     main()
@@ -159,7 +161,7 @@ Al seleccionar esta opción, se pedirá la patente del vehículo para el cual se
 
 import random
 4. Salir
-Lo siguiente es parte del archivo Evaluacion3.py:
+Lo siguiente es parte del archivo Prueba.py:
  elif opcion == "4":
             print("Gracias por utilizar Auto Seguro. ¡Hasta luego!")
             break
@@ -170,11 +172,11 @@ Cómo utilizar el programa
 
 2.Asegúrate de tener Python instalado en tu sistema.
 
-3.Abre una terminal y navega hasta la ubicación del archivo Evaluacion3.py.
+3.Abre una terminal y navega hasta la ubicación del archivo Prueba.py.
 
-4.Verifica que en la carpeta se encuentran ambos archivos: Evaluacion3.py y FuncionesEvaluacion3.py.
+4.Verifica que en la carpeta se encuentran ambos archivos: Prueba.py .
 
-5.Ejecuta el programa directamente o con el comando python Evaluacion3.py.
+5.Ejecuta el programa directamente o con el comando python Prueba.py.
 
 6.Sigue las instrucciones del menú para utilizar las diferentes funciones.
 
