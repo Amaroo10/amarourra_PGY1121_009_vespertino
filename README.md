@@ -1,7 +1,7 @@
 
-# Evaluacion Parcial 3
+# prueba 3
 
-3era evaluacion parcial del primer semestre de Ingenieria Informatica DUOC UC Sede Plaza Norte.
+3ra evaluacion parcial del primer semestre de Ingenieria Informatica DUOC UC Sede Plaza Norte.
 ## Contexto:
 
 #### Se plantea la siguiente situacion:
