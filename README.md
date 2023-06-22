@@ -167,10 +167,17 @@ Esta opción permite salir del programa y finalizar la ejecución.
 
 Cómo utilizar el programa
 1.Clona este repositorio o descarga el archivo ZIP y extraelo.
+
 2.Asegúrate de tener Python instalado en tu sistema.
+
 3.Abre una terminal y navega hasta la ubicación del archivo Evaluacion3.py.
+
 4.Verifica que en la carpeta se encuentran ambos archivos: Evaluacion3.py y FuncionesEvaluacion3.py.
+
 5.Ejecuta el programa directamente o con el comando python Evaluacion3.py.
+
 6.Sigue las instrucciones del menú para utilizar las diferentes funciones.
+
 Espero que este archivo README.md sea de ayuda.
+
 Puedes copiar y pegar su contenido en tu propio archivo README.md en tu repositorio de GitHub y modificarlo según tus necesidades.
