@@ -1,6 +1,6 @@
 # amarourra_PGY1121_009_vespertino
 Evaluacion Parcial 3
-3era evaluacion parcial del primer semestre de Ingenieria Informatica DUOC UC Sede Plaza Norte.
+3ra evaluacion parcial del primer semestre de Ingenieria Informatica DUOC UC Sede Plaza Norte.
 
 Contexto:
 Se plantea la siguiente situacion:
@@ -39,29 +39,27 @@ usuario = input("Ingrese su nombre: ")
 
 def main():
     registro = {}
-    
     while True:
-        print("\nPor favor elija una opcion: ")
+        print("\nMenú:")
         print("1. Grabar vehículo")
         print("2. Buscar vehículo")
         print("3. Imprimir certificados")
         print("4. Salir")
-        
-        opcion = input("Seleccione una opcion: ")
-        
+
+        opcion = input("Seleccione una opción: ")
+
         if opcion == "1":
-            fn.grabar_vehiculo(registro)
+            grabar_vehiculo()
         elif opcion == "2":
-            fn.buscar_vehiculo(registro)
+            buscar_vehiculo()
         elif opcion == "3":
-            fn.imprimir_certificados(registro)
+            imprimir_certificados()
         elif opcion == "4":
-            print(f"Hasta luego {usuario}. Gracias por usar Auto Seguro.\nversion 1.0")
-            print("Cerrando...")
-            time.sleep(5)
+            print("Gracias por utilizar Auto Seguro. ¡Hasta luego!")
             break
         else:
-            print("Opcion invalida. Intente nuevamente.")
+            print("Opción inválida. Por favor, seleccione una opción válida.")
+
 En el inicio del archivo importamos la libreria time para usar un time.sleep que le dará al programa una espera de 5 segundos antes de cerrar completamente.
 
 Para finalizar el archivo principal Evaluacion3.py, le daremos la opcion de ser importado en un futuro hacia otro archivo, sin tener que ejecutarse sobre el mismo e importando solo las funciones de FuncionesEvaluacion3.py.
@@ -77,45 +75,29 @@ def grabar_vehiculo(registro):
     while True:
         tipo = input("Tipo de vehiculo: ")
 
-        patente = input("Ingrese la patente: ")
-        while len(patente) != 6:
-            print("La patente debe tener 6 caracteres.")
-            patente = input("Ingrese la patente: ")
-        marca = input("Ingrese la marca del vehiculo: ")
-        while len(marca) < 2 or len(marca) > 15:
-            print("La marca debe tener entre 2 y 15 caracteres.")
-            marca = input("Ingrese la marca del vehiculo: ")
-        precio = input("Precio: ")
-        while not precio.isdigit() or int(precio) <= 5000000:
-            print("El precio debe ser mayor a $5.000.000 (Ingresar solo numeros).")
-            precio = input("Precio: ")
-        fecha_registro = input("Fecha de registro (DD/MM/AAAA): ")
-        multas = []
-        while True:
-            tiene_multas = input("Posee multas? (S/N): ")
-            if tiene_multas.upper() == "S":
-                cantidad_multas = int(input("Ingrese la cantidad de multas: "))
-                for i in range(cantidad_multas):
-                    fecha_multa = input(f"Fecha de la multa {i+1}: ")
-                    monto_multa = input("Monto de la multa: ")
-                    multas.append({"Fecha": fecha_multa, "Monto": monto_multa})  
-                break              
-            elif tiene_multas.upper() == "N":
-                break
-            else:
-                print("Respuesta invalida. Por favor ingrese 'S' para si o 'N' para no (En mayusculas).")
-        nombre_dueno = input("Nombre del dueño: ")
+        def grabar_vehiculo():
+    tipo = input("Ingrese el tipo de vehículo: ")
+    patente = input("Ingrese la patente: ")
+    marca = input("Ingrese la marca: ")
+    precio = int(input("Ingrese el precio: "))
+    multas = []
+    fecha_registro = input("Ingrese la fecha de registro: ")
+    dueno = input("Ingrese el nombre del dueño: ")
 
-        registro[patente] = {
-            "Tipo": tipo,
-            "Marca": marca,
-            "Precio": int(precio),
-            "Multas": multas,
-            "Fecha de registro": fecha_registro,
-            "Nombre del dueño": nombre_dueno
-        }
-        print("Vehiculo registrado exitosamente.")
-        break
+    # Verificar que la patente sea correcta
+    # Aquí puedes implementar la lógica de validación de patente según las reglas de tu país
+
+    if len(marca) < 2 or len(marca) > 15:
+        print("La marca debe tener entre 2 y 15 caracteres.")
+        return
+
+    if precio <= 5000000:
+        print("El precio debe ser mayor a $5.000.000.")
+        return
+
+    vehiculo = Vehiculo(tipo, patente, marca, precio, multas, fecha_registro, dueno)
+    vehiculos.append(vehiculo)
+    print("Vehículo registrado con éxito.")
 Esta función permite ingresar los datos de un vehículo y almacenarlos en el registro. Los datos solicitados incluyen:
 
 Tipo de vehículo
@@ -129,71 +111,45 @@ El programa realiza validaciones en los datos ingresados, como la longitud de la
 Además, se ha agregado la opción de ingresar multas. Si el vehículo tiene multas, se puede indicar la cantidad de multas y luego ingresar la fecha y el monto de cada una.
 
 2. Buscar vehículo
-def buscar_vehiculo(registro):
-    patente = input("Ingrese la patente del vehiculo a buscar: ")
-    
-    if patente in registro:
-        vehiculo = registro[patente]
-        print("Informacion del vehiculo:")
-        print(f"Nombre del dueño: {vehiculo['Nombre del dueño']}")
-        print(f"Patente: {patente}")
-        print(f"Marca: {vehiculo['Marca']}")
-        print(f"Tipo: {vehiculo['Tipo']}")
-        print(f"Precio: {vehiculo['Precio']}")
-        print(f"Fecha de registro: {vehiculo['Fecha de registro']}")
-        print("Multas:")
-        if len(vehiculo['Multas']) > 0:
-            i = 1
-            for multa in vehiculo['Multas']:
-                print(f"Fecha multa {i}: {multa['Fecha']}\nMonto: {multa['Monto']}")
-                i += 1
-        else:
-            print("El vehículo no tiene multas registradas.")
-    else:
-        print("No se encontro ningun vehiculo con la patente ingresada.")
+
+def buscar_vehiculo():
+    patente = input("Ingrese la patente del vehículo a buscar: ")
+
+    for vehiculo in vehiculos:
+        if vehiculo.patente == patente:
+            print("Tipo:", vehiculo.tipo)
+            print("Marca:", vehiculo.marca)
+            print("Precio:", vehiculo.precio)
+            print("Multas:", vehiculo.multas)
+            print("Fecha de registro:", vehiculo.fecha_registro)
+            print("Dueño:", vehiculo.dueno)
+            return
+
+    print("Vehículo no encontrado.")
 Con esta función, es posible buscar un vehículo en el registro utilizando su patente. Si el vehículo se encuentra en el registro, se mostrará toda su información almacenada, incluyendo los detalles de las multas en caso de tener.
 
 3. Imprimir certificados
-def imprimir_certificados(registro):
-    patente = input("Ingrese la patente del vehiculo para imprimir los certificados: ")
-    
-    if patente in registro:
-        vehiculo = registro[patente]
-        certificado_emision = random.randint(1500, 3500)
-        certificado_anotaciones = random.randint(1500, 3500)
-        certificado_multas = random.randint(1500, 3500)
-        
-        while True:
-            print("\nMenu Certificados.")
-            print("1. Certificado de Emision de contaminantes")
-            print("2. Certificado de anotaciones vigentes")
-            print("3. Certificado de multas")
-            print("4. Volver")
-            
-            opcion = input("Seleccione el certificado a imprimir: ")
-            
-            if opcion == "1":
-                print("\nCertificado de Emision de contaminantes:")
-                print(f"Patente del auto: {patente}")
-                print(f"Dueño actual: {vehiculo['Nombre del dueño']}")
-                print(f"Valor del certificado: ${certificado_emision}")
-            elif opcion == "2":
-                print("\nCertificado de anotaciones vigentes:")
-                print(f"Patente del auto: {patente}")
-                print(f"Dueño actual: {vehiculo['Nombre del dueño']}")
-                print(f"Valor del certificado: ${certificado_anotaciones}")
-            elif opcion == "3":
-                print("\nCertificado de multas:")
-                print(f"Patente del auto: {patente}")
-                print(f"Dueño actual: {vehiculo['Nombre del dueño']}")
-                print(f"Valor del certificado: ${certificado_multas}")
-            elif opcion == "4":
-                print("Volviendo al menu principal...")
-                break
-            else:
-                print("Opción invalida. Intente nuevamente.")
-    else:
-        print("No se encontro ningun vehiculo con la patente ingresada.")
+def imprimir_certificados():
+    for vehiculo in vehiculos:
+        certificado_emision = round(random.uniform(1500, 3500), 2)
+        certificado_anotaciones = round(random.uniform(1500, 3500), 2)
+        certificado_multas = round(random.uniform(1500, 3500), 2)
+
+        print("Certificado de Emisión de Contaminantes")
+        print("Patente:", vehiculo.patente)
+        print("Dueño:", vehiculo.dueno)
+        print("Valor: $", certificado_emision)
+
+        print("Certificado de Anotaciones Vigentes")
+        print("Patente:", vehiculo.patente)
+        print("Dueño:", vehiculo.dueno)
+        print("Valor: $", certificado_anotaciones)
+
+        print("Certificado de Multas")
+        print("Patente:", vehiculo.patente)
+        print("Dueño:", vehiculo.dueno)
+        print("Valor: $", certificado_multas)
+
 La opción de imprimir permite generar certificados para los vehículos registrados. Los certificados disponibles son:
 
 Certificado de Emisión de contaminantes
@@ -204,18 +160,17 @@ Al seleccionar esta opción, se pedirá la patente del vehículo para el cual se
 import random
 4. Salir
 Lo siguiente es parte del archivo Evaluacion3.py:
-
-print(f"Hasta luego {usuario}. Gracias por usar Auto Seguro.\nversion 1.0")
-            print("Cerrando...")
-            time.sleep(5)
+ elif opcion == "4":
+            print("Gracias por utilizar Auto Seguro. ¡Hasta luego!")
             break
 Esta opción permite salir del programa y finalizar la ejecución.
 
 Cómo utilizar el programa
-Clona este repositorio o descarga el archivo ZIP y extraelo.
-Asegúrate de tener Python instalado en tu sistema.
-Abre una terminal y navega hasta la ubicación del archivo Evaluacion3.py.
-Verifica que en la carpeta se encuentran ambos archivos: Evaluacion3.py y FuncionesEvaluacion3.py.
-Ejecuta el programa directamente o con el comando python Evaluacion3.py.
-Sigue las instrucciones del menú para utilizar las diferentes funciones.
-Espero que este archivo README.md sea de ayuda. Puedes copiar y pegar su contenido en tu propio archivo README.md en tu repositorio de GitHub y modificarlo según tus necesidades.
+1.Clona este repositorio o descarga el archivo ZIP y extraelo.
+2.Asegúrate de tener Python instalado en tu sistema.
+3.Abre una terminal y navega hasta la ubicación del archivo Evaluacion3.py.
+4.Verifica que en la carpeta se encuentran ambos archivos: Evaluacion3.py y FuncionesEvaluacion3.py.
+5.Ejecuta el programa directamente o con el comando python Evaluacion3.py.
+6.Sigue las instrucciones del menú para utilizar las diferentes funciones.
+Espero que este archivo README.md sea de ayuda.
+Puedes copiar y pegar su contenido en tu propio archivo README.md en tu repositorio de GitHub y modificarlo según tus necesidades.
