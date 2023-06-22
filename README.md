@@ -244,9 +244,9 @@ Esta opción permite salir del programa y finalizar la ejecución.
 
 1. Clona este repositorio o descarga el archivo ZIP y extraelo.
 2. Asegúrate de tener Python instalado en tu sistema.
-3. Abre una terminal y navega hasta la ubicación del archivo `Evaluacion3.py`.
-4. Verifica que en la carpeta se encuentran ambos archivos: `Evaluacion3.py` y `FuncionesEvaluacion3.py`.
-5. Ejecuta el programa directamente o con el comando `python Evaluacion3.py`.
+3. Abre una terminal y navega hasta la ubicación del archivo `Prueba3.py`.
+4. Verifica que en la carpeta se encuentran ambos archivos: `Prueba3.py` y `FuncionesPrueba3.py`.
+5. Ejecuta el programa directamente o con el comando `python Prueba3.py`.
 6. Sigue las instrucciones del menú para utilizar las diferentes funciones.
 
 
